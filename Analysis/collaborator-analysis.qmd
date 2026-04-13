@@ -1,5 +1,55 @@
 ---
 title: "Collaborator Analysis"
+author: Ramit guha
 format: html
 ---
 
+## Exercise: Explore, Clean, and Wrangle Data
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(here)
+```
+
+```{r}
+here::here(
+  "Data Folder",
+  "Time-series of lobster trap buoy counts",
+  "Lobster_Trap_Counts_All_Years_20210519.csv"
+)
+```
+
+```{r}
+lobster_traps <- read_csv(
+  here::here(
+    "Data Folder",
+    "Time-series of lobster trap buoy counts",
+    "Lobster_Trap_Counts_All_Years_20210519.csv"
+  )
+)
+```
+
+```{r}
+lobster_traps <- lobster_traps %>% 
+    mutate(TRAPS = na_if(TRAPS, -99999))
+```
+
+```{r}
+not_napl <- lobster_traps %>% 
+    filter(SITE != "NAPL")
+```
+
+```{r}
+carp_20_traps <- lobster_traps %>% 
+    filter(SITE == "CARP" & TRAPS > 20)
+```
+
+```{r}
+# `group_by() %>% summarize()` practice
+max_lobster_traps <- lobster_traps %>% 
+    group_by(SITE, MONTH) %>%
+    summarize(MAX_TRAPS = max(TRAPS, na.rm = TRUE))
+```
