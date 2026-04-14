@@ -28,6 +28,13 @@ lobster_abundance <- lobster_abundance %>%
     mutate(SIZE_MM = na_if(SIZE_MM, -99999))
 ```
 
+```{r}
+# `group_by() %>% summarize()` practice
+max_lobster_traps <- lobster_traps %>% 
+    group_by(SITE, MONTH) %>%
+    summarize(MAX_TRAPS = max(TRAPS, na.rm = TRUE))
+```
+
 ## Lobster Trap Counts
 
 ```{r}
