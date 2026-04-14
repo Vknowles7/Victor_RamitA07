@@ -13,6 +13,13 @@ library(here)
 ```
 
 ## Lobster Abundance & Size Citation
+```{r}
+lobster_abundance <- read_csv(here::here(
+  "Data Folder",
+  "Time-series of lobster abundance and size",
+  "Lobster_Abundance_All_Years_20220829.csv"
+))
+```
 
 ```{r}
 lobster_abundance <- lobster_abundance %>% 
