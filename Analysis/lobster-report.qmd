@@ -4,6 +4,7 @@ Owner: Victor Knowles
 Collaborator: Ramit Guha
 format: html
 ---
+
 ```{r}
 library(readr)
 library(dplyr)
@@ -13,6 +14,7 @@ library(here)
 ```
 
 ## Lobster Abundance & Size Citation
+
 ```{r}
 lobster_abundance <- read_csv(here::here(
   "Data Folder",
@@ -24,6 +26,26 @@ lobster_abundance <- read_csv(here::here(
 ```{r}
 lobster_abundance <- lobster_abundance %>% 
     mutate(SIZE_MM = na_if(SIZE_MM, -99999))
+```
+
+## Lobster Trap Counts
+
+```{r}
+here::here(
+  "Data Folder",
+  "Time-series of lobster trap buoy counts",
+  "Lobster_Trap_Counts_All_Years_20210519.csv"
+)
+```
+
+```{r}
+lobster_traps <- read_csv(
+  here::here(
+    "Data Folder",
+    "Time-series of lobster trap buoy counts",
+    "Lobster_Trap_Counts_All_Years_20210519.csv"
+  )
+)
 ```
 
 ## Citation
@@ -39,4 +61,12 @@ ggplot(data = lobster_abundance,
        aes(x = SIZE_MM)) +
   geom_histogram() +
   facet_wrap(~SITE)
+```
+
+```{r}
+# line and point plot
+ggplot(data = lobsters_traps_summarize, aes(x = YEAR, y = TOTAL_TRAPS)) +
+    geom_point(aes(color = SITE)) +
+    geom_line(aes(color = SITE))
+
 ```
