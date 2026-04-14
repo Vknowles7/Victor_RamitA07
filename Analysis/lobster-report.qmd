@@ -17,6 +17,10 @@ library(here)
 
 Santa Barbara Coastal LTER, D. Reed, and R. Miller. 2022. SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012 ver 8. Environmental Data Initiative. https://doi.org/10.6073/pasta/25aa371650a671bafad64dd25a39ee18 (Accessed 2026-04-14).
 
+## Summary of Abstract
+
+This study tracks California spiny lobster populations along the Santa Barbara Channel to understand how fishing impacts kelp forest ecosystems. Researchers collect data on lobster abundance, size, and fishing pressure, especially comparing sites inside marine protected areas (MPAs) to those outside. The dataset includes annual diver surveys of lobster populations at five reef sites and regular measurements of fishing activity (via trap counts) during the fishing season across multiple locations.
+
 ## Lobster Abundance & Size File
 
 ```{r}
@@ -37,6 +41,13 @@ lobster_abundance <- lobster_abundance %>%
 max_lobster_traps <- lobster_traps %>% 
     group_by(SITE, MONTH) %>%
     summarize(MAX_TRAPS = max(TRAPS, na.rm = TRUE))
+```
+
+```{r}
+ggplot(data = lobster_abundance,
+       aes(x = SIZE_MM)) +
+  geom_histogram() +
+  facet_wrap(~SITE)
 ```
 
 ## Lobster Trap Counts
@@ -81,17 +92,6 @@ max_lobster_traps <- lobster_traps %>%
     summarize(MAX_TRAPS = max(TRAPS, na.rm = TRUE))
 ```
 
-## Summary of Abstract
-
-This study tracks California spiny lobster populations along the Santa Barbara Channel to understand how fishing impacts kelp forest ecosystems. Researchers collect data on lobster abundance, size, and fishing pressure, especially comparing sites inside marine protected areas (MPAs) to those outside. The dataset includes annual diver surveys of lobster populations at five reef sites and regular measurements of fishing activity (via trap counts) during the fishing season across multiple locations.
-
-```{r}
-ggplot(data = lobster_abundance,
-       aes(x = SIZE_MM)) +
-  geom_histogram() +
-  facet_wrap(~SITE)
-```
-
 ```{r}
 ## Run this chunk to test exercises ##
 
@@ -117,3 +117,9 @@ ggplot(data = lobsters_traps_summarize, aes(x = YEAR, y = TOTAL_TRAPS)) +
     geom_line(aes(color = SITE))
 
 ```
+
+## Summary/Discussion
+
+The size distribution plots show that lobster sizes are relatively consistent across sites, with most individuals falling between about 60–100 mm. IVEE and CARP appear to have slightly broader distributions and include some larger individuals, while AQUE and MOHK show narrower ranges with fewer large lobsters. Overall, the distributions are centered around similar size ranges, suggesting comparable population structure across sites with only minor differences in variability and maximum size.
+
+The time series plot of total trap counts reveals strong spatial and temporal variation in fishing pressure. Sites like CARP and AQUE consistently experience the highest trap counts, indicating heavier fishing activity, while sites such as AHND and nearby segments show very low and stable effort. Several sites exhibit fluctuations over time, with noticeable peaks around 2016 and 2020, followed by a sharp drop in 2021 across nearly all locations. This decline likely reflects reduced sampling or fishing effort rather than a true ecological change. Together, these plots suggest that while lobster size structure remains relatively stable across sites, fishing pressure varies considerably by location and year.
