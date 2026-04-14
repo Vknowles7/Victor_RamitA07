@@ -61,6 +61,11 @@ lobster_traps <- lobster_traps %>%
 ```
 
 ```{r}
+not_napl <- lobster_traps %>% 
+    filter(SITE != "NAPL")
+```
+
+```{r}
 carp_20_traps <- lobster_traps %>% 
     filter(SITE == "CARP" & TRAPS > 20)
 ```
