@@ -12,7 +12,7 @@ library(tidyr)
 library(here)
 ```
 
-##Lobster Abundance & Size Citation
+## Lobster Abundance & Size Citation
 ```{r}
 lobster_abundance <- read_csv(here::here(
   "Data Folder",
@@ -32,3 +32,10 @@ Santa Barbara Coastal LTER, D. Reed, and R. Miller. 2022. SBC LTER: Reef: Abunda
 ## Summary of Abstract
 
 This study tracks California spiny lobster populations along the Santa Barbara Channel to understand how fishing impacts kelp forest ecosystems. Researchers collect data on lobster abundance, size, and fishing pressure, especially comparing sites inside marine protected areas (MPAs) to those outside. The dataset includes annual diver surveys of lobster populations at five reef sites and regular measurements of fishing activity (via trap counts) during the fishing season across multiple locations.
+
+```{r}
+ggplot(data = lobster_abundance,
+       aes(x = SIZE_MM)) +
+  geom_histogram() +
+  facet_wrap(~SITE)
+```
