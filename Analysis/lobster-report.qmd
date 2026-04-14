@@ -13,7 +13,11 @@ library(tidyr)
 library(here)
 ```
 
-## Lobster Abundance & Size Citation
+## Citation
+
+Santa Barbara Coastal LTER, D. Reed, and R. Miller. 2022. SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012 ver 8. Environmental Data Initiative. https://doi.org/10.6073/pasta/25aa371650a671bafad64dd25a39ee18 (Accessed 2026-04-14).
+
+## Lobster Abundance & Size File
 
 ```{r}
 lobster_abundance <- read_csv(here::here(
@@ -76,10 +80,6 @@ max_lobster_traps <- lobster_traps %>%
     group_by(SITE, MONTH) %>%
     summarize(MAX_TRAPS = max(TRAPS, na.rm = TRUE))
 ```
-
-## Citation
-
-Santa Barbara Coastal LTER, D. Reed, and R. Miller. 2022. SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012 ver 8. Environmental Data Initiative. https://doi.org/10.6073/pasta/25aa371650a671bafad64dd25a39ee18 (Accessed 2026-04-14).
 
 ## Summary of Abstract
 
