@@ -111,6 +111,13 @@ lobster_traps <- read_csv(
 ```
 
 ```{r}
+ggplot(data = lobster_traps, aes(x = TRAPS)) +
+    geom_histogram() +
+    facet_wrap( ~ YEAR)
+
+lobsters_traps_summarize <- lobster_traps %>% 
+  group_by(SITE, YEAR) %>% 
+  summarize(TOTAL_TRAPS = sum(TRAPS, na.rm = TRUE))
 # line and point plot
 ggplot(data = lobsters_traps_summarize, aes(x = YEAR, y = TOTAL_TRAPS)) +
     geom_point(aes(color = SITE)) +
