@@ -132,7 +132,7 @@ ggplot(data = lobsters_traps_summarize, aes(x = YEAR, y = TOTAL_TRAPS)) +
 
 ```
 
-## Summary/Discussion
+## Summary/ Discussion
 
 The size distribution plots show that lobster sizes are relatively consistent across sites, with most individuals falling between about 60–100 mm. IVEE and CARP appear to have slightly broader distributions and include some larger individuals, while AQUE and MOHK show narrower ranges with fewer large lobsters. Overall, the distributions are centered around similar size ranges, suggesting comparable population structure across sites with only minor differences in variability and maximum size.
 
