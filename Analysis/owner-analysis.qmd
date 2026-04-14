@@ -1,6 +1,7 @@
 ---
 title: "Owner Analysis"
 format: html
+authors: Victor Knowles and Ramit Guha
 ---
 
 ```{r}
