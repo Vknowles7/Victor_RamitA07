@@ -64,6 +64,24 @@ ggplot(data = lobster_abundance,
 ```
 
 ```{r}
+## Run this chunk to test exercises ##
+
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+
+lobster_traps <- read_csv(
+  here::here(
+    "Data Folder",
+    "Time-series of lobster trap buoy counts",
+    "Lobster_Trap_Counts_All_Years_20210519.csv"
+  )
+) %>%
+  mutate(TRAPS = na_if(TRAPS, -99999))
+```
+
+```{r}
 # line and point plot
 ggplot(data = lobsters_traps_summarize, aes(x = YEAR, y = TOTAL_TRAPS)) +
     geom_point(aes(color = SITE)) +
