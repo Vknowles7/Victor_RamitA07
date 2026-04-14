@@ -1,5 +1,7 @@
 ---
 title: "Lobster Report"
 format: html
+Owner: Victor Knowles
+Collaborator: Ramit Guha
 ---
 
