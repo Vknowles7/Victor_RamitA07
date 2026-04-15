@@ -5,6 +5,10 @@ Collaborator: Ramit Guha
 format: html
 ---
 
+### Owner: Victor Knowles
+
+### Collaborator: Ramit Guha
+
 ```{r}
 library(readr)
 library(dplyr)
@@ -36,7 +40,9 @@ max_lobster_traps <- lobster_traps %>%
 
 ## Citation
 
-Santa Barbara Coastal LTER, D. Reed, and R. Miller. 2022. SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012 ver 8. Environmental Data Initiative. https://doi.org/10.6073/pasta/25aa371650a671bafad64dd25a39ee18 (Accessed 2026-04-14).
+Santa Barbara Coastal LTER, D. Reed, and R. Miller. 2022. SBC LTER: Reef: Abundance, size and fishing effort for California Spiny Lobster (Panulirus interruptus), ongoing since 2012 ver 8. Environmental Data Initiative. [DOI: 10.6073/pasta/25aa371650a671bafad64dd25a39ee18](https://doi.org/10.6073/pasta/25aa371650a671bafad64dd25a39ee18)
+
+(Accessed 2026-04-14).
 
 ## Summary of Abstract
 
@@ -132,7 +138,7 @@ ggplot(data = lobsters_traps_summarize, aes(x = YEAR, y = TOTAL_TRAPS)) +
 
 ```
 
-## Summary/ Discussion
+## Summary/Discussion
 
 The size distribution plots show that lobster sizes are relatively consistent across sites, with most individuals falling between about 60–100 mm. IVEE and CARP appear to have slightly broader distributions and include some larger individuals, while AQUE and MOHK show narrower ranges with fewer large lobsters. Overall, the distributions are centered around similar size ranges, suggesting comparable population structure across sites with only minor differences in variability and maximum size.
 
